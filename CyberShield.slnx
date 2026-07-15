@@ -1,0 +1,9 @@
+<Solution>
+  <Folder Name="/backend/">
+    <Project Path="backend/CyberShield.API/CyberShield.API.csproj" />
+    <Project Path="backend/CyberShield.Application/CyberShield.Application.csproj" />
+    <Project Path="backend/CyberShield.Domain/CyberShield.Domain.csproj" />
+    <Project Path="backend/CyberShield.Infrastructure/CyberShield.Infrastructure.csproj" />
+    <Project Path="backend/CyberShield.Shared/CyberShield.Shared.csproj" />
+  </Folder>
+</Solution>
