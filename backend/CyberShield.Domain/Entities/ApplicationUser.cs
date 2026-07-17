@@ -2,9 +2,17 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace CyberShield.Domain.Entities
+using Microsoft.AspNetCore.Identity;
+
+namespace CyberShield.Domain.Entities;
+
+public class ApplicationUser : IdentityUser
 {
-    internal class ApplicationUser
-    {
-    }
+    public string FirstName { get; set; } = string.Empty;
+
+    public string LastName { get; set; } = string.Empty;
+
+    public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+
+    public bool IsActive { get; set; } = true;
 }
