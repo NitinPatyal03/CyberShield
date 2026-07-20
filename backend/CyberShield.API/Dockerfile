@@ -7,7 +7,7 @@ WORKDIR /src
 
 COPY . .
 
-RUN dotnet restore CyberShield.sln
+RUN dotnet restore CyberShield.slnx
 
 RUN dotnet publish CyberShield.API/CyberShield.API.csproj \
     -c Release \
