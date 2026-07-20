@@ -1,12 +1,11 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
-    <ProjectReference Include="..\CyberShield.Domain\CyberShield.Domain.csproj" />
+    <PackageReference Include="QuestPDF" Version="2026.7.1" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Interfaces\" />
-    <Folder Include="DTOs\" />
+    <ProjectReference Include="..\CyberShield.Domain\CyberShield.Domain.csproj" />
   </ItemGroup>
 
   <PropertyGroup>

@@ -12,6 +12,9 @@ public class ApplicationUser : IdentityUser
 
     public string LastName { get; set; } = string.Empty;
 
+    public ICollection<Website> Websites { get; set; }
+    = new List<Website>();
+
     public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 
     public bool IsActive { get; set; } = true;
