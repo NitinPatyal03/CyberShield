@@ -1,5 +1,4 @@
 import {
-  AlertTriangle,
   Trash2,
   CheckCircle
 } from "lucide-react";
