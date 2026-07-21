@@ -7,9 +7,40 @@ import {
 } from "lucide-react";
 import { useLocation } from "react-router-dom";
 import NotificationBell from "../layouts/NotificationBell";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 function Navbar() {
   const location = useLocation();
+
+  const [user, setUser] = useState({
+    firstName: "",
+    lastName: "",
+    role: "",
+  });
+
+  useEffect(() => {
+    const loadProfile = async () => {
+      try {
+        const token = localStorage.getItem("token");
+
+        const res = await axios.get(
+          "https://cybershield-api-jh2q.onrender.com/api/profile",
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+
+        setUser(res.data);
+      } catch (err) {
+        console.error(err);
+      }
+    };
+
+    loadProfile();
+  }, []);
 
   const pageMap: Record<
     string,
@@ -95,16 +126,16 @@ function Navbar() {
         <div className="flex items-center gap-3 rounded-xl border border-slate-200 px-4 py-2">
 
           <div className="h-10 w-10 rounded-full bg-cyan-500 flex items-center justify-center text-white font-bold">
-            N
+            {`${user.firstName.charAt(0)}${user.lastName.charAt(0)}`}
           </div>
 
           <div>
             <p className="font-semibold text-slate-800">
-              Nitin
+              {user.firstName} {user.lastName}
             </p>
 
             <p className="text-xs text-slate-500">
-              Security Analyst
+              {user.role}
             </p>
           </div>
 
