@@ -9,10 +9,11 @@ public class WebsiteScanner : IWebsiteScanner
     private readonly HttpClient _httpClient;
     private readonly SslCertificateService _sslService;
     private readonly PortScannerService _portScanner;
+
     public WebsiteScanner(
-    HttpClient httpClient,
-    SslCertificateService sslService,
-    PortScannerService portScanner)
+        HttpClient httpClient,
+        SslCertificateService sslService,
+        PortScannerService portScanner)
     {
         _httpClient = httpClient;
         _sslService = sslService;
@@ -112,23 +113,24 @@ public class WebsiteScanner : IWebsiteScanner
 
                 if (certificate != null)
                 {
+                    // Convert certificate expiry to UTC
+                    var expiryDateUtc = certificate.NotAfter.ToUniversalTime();
+
                     result.CertificateIssuer = certificate.Issuer;
                     result.CertificateSubject = certificate.Subject;
 
-                    result.CertificateExpiryDate = certificate.NotAfter;
+                    result.CertificateExpiryDate = expiryDateUtc;
 
                     result.DaysUntilExpiry =
-                        (certificate.NotAfter - DateTime.UtcNow).Days;
+                        (expiryDateUtc - DateTime.UtcNow).Days;
 
                     result.IsCertificateExpired =
-                        certificate.NotAfter < DateTime.UtcNow;
+                        expiryDateUtc < DateTime.UtcNow;
 
                     result.IsCertificateValid =
                         !result.IsCertificateExpired;
                 }
             }
-
-
 
             // ==========================
             // Security Score
@@ -391,5 +393,4 @@ public class WebsiteScanner : IWebsiteScanner
 
         return vulnerabilities;
     }
-
 }
