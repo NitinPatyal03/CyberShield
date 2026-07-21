@@ -56,15 +56,16 @@ export interface ScanResult {
   recommendations: SecurityRecommendation[];
   vulnerabilities: Vulnerability[];
   openPorts: PortResult[];
+
   certificateIssuer: string;
-certificateSubject: string;
-certificateExpiryDate: string | null;
-daysUntilExpiry: number;
-isCertificateValid: boolean;
+  certificateSubject: string;
+  certificateExpiryDate: string | null;
+  daysUntilExpiry: number;
+  isCertificateValid: boolean;
 }
 
 export const scanWebsite = async (url: string) => {
-  const response = await api.post<ScanResult>("/Scanner/scan", {
+  const response = await api.post<ScanResult>("/api/Scanner/scan", {
     url,
   });
 

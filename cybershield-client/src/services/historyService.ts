@@ -13,10 +13,10 @@ export interface ScanHistory {
 }
 
 export const getHistory = async (): Promise<ScanHistory[]> => {
-  const response = await api.get("/scanner/history");
+  const response = await api.get("/api/scanner/history");
   return response.data;
 };
 
 export const deleteHistory = async (id: number) => {
-  await api.delete(`/scanner/${id}`);
+  await api.delete(`/api/scanner/${id}`);
 };

@@ -17,6 +17,6 @@ export interface DashboardData {
 }
 
 export async function getDashboard() {
-  const response = await api.get<DashboardData>("/Dashboard");
+  const response = await api.get<DashboardData>("/api/Dashboard");
   return response.data;
 }
