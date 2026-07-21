@@ -20,13 +20,21 @@ export interface LoginResponse {
 export const login = async (
   data: LoginRequest
 ): Promise<LoginResponse> => {
-  const response = await api.post<LoginResponse>("/Auth/login", data);
+  const response = await api.post<LoginResponse>(
+    "/api/Auth/login",
+    data
+  );
+
   return response.data;
 };
 
 export const register = async (
   data: RegisterRequest
 ) => {
-  const response = await api.post("/Auth/register", data);
+  const response = await api.post(
+    "/api/Auth/register",
+    data
+  );
+
   return response.data;
 };
