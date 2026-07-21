@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="CyberShield.API/CyberShield.API.csproj" />
+  <Project Path="CyberShield.Application/CyberShield.Application.csproj" />
+  <Project Path="CyberShield.Domain/CyberShield.Domain.csproj" />
+  <Project Path="CyberShield.Infrastructure/CyberShield.Infrastructure.csproj" />
+  <Project Path="CyberShield.Shared/CyberShield.Shared.csproj" />
+</Solution>
